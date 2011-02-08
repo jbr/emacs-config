@@ -3,4 +3,5 @@
 (setq default-directory "~/code")
 
 (require 'undo-tree)
+(global-undo-tree-mode)
 
