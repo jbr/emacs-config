@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(fringe-mode (quote (0 . 4)) nil (fringe))
  '(global-linum-mode t)
+ '(global-undo-tree-mode t)
  '(linum-format "%d  "))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
