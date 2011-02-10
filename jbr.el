@@ -5,3 +5,6 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+(require 'sibilant-mode)
+
+
