@@ -25,3 +25,4 @@
 (setq ns-pop-up-frames nil)
 (peepopen-bind-ns-keys)
 
+(define-key *textmate-mode-map* [(super w)] 'kill-this-buffer)
