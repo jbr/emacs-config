@@ -7,4 +7,7 @@
 
 (require 'sibilant-mode)
 
-
+(textmate-mode)
+(require 'peepopen)
+(setq ns-pop-up-frames nil)
+(peepopen-bind-ns-keys)
