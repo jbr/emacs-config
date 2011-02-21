@@ -15,6 +15,30 @@
 (global-set-key (kbd "M-SPC") 'hippie-expand)
 (setq default-directory "~/code")
 
+(defun mihai-indent ()
+  "http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode"
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (espresso--proper-indentation parse-status))
+           node)
+
+      (indent-line-to indentation)
+      (when (> offset 0) (forward-char offset)))))
+
+(defun indent-with-espresso ()
+  "http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode"
+  (require 'espresso)
+  (setq espresso-indent-level 2
+	indent-tabs-mode nil
+	c-basic-offset 2)
+  (set (make-local-variable 'indent-line-function) 'mihai-indent))
+
+(add-hook 'js2-mode-hook 'indent-with-espresso)
+
 (require 'undo-tree)
 (global-undo-tree-mode)
 
